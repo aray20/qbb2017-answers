@@ -5,11 +5,19 @@ import pandas as pd
 import statsmodels.api as sm
 
 df = pd.read_csv(sys.argv[1], sep="\t")
-df_k4 = pd.read_csv(sys.argv[2], sep="\t", header=None)
-df_k9 = pd.read_csv(sys.argv[3], sep="\t", header=None)
-df_k27 = pd.read_csv(sys.argv[4], sep="\t", header=None)
-df_k36 = pd.read_csv(sys.argv[5], sep="\t", header=None)
+df = df.sort_values("t_id")
 
+df_k4 = pd.read_csv(sys.argv[2], sep="\t", header=None)
+df_k4 = df_k4.sort_values([0], axis=1)
+
+df_k9 = pd.read_csv(sys.argv[3], sep="\t", header=None)
+df_k9 = df_k9.sort_values([0], axis=1)
+
+df_k27 = pd.read_csv(sys.argv[4], sep="\t", header=None)
+df_k27 = df_k27.sort_values([0], axis=1)
+
+df_k36 = pd.read_csv(sys.argv[5], sep="\t", header=None)
+df_k36 = df_k36.sort_values([0], axis=1)
 
 fpkm = df["FPKM"]
 k4 = df_k4[5]
