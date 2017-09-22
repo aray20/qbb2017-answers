@@ -1,0 +1,54 @@
+Week 2 hw terminal commands
+
+
+Part1 -- Short Read Assembly
+
+
+velveth reads 31 -shortPaired -fastq -separate reads_low_1.fastq reads_low_2.fastq
+velvetg reads/
+
+spades.py -1 reads_low_1.fastq -2 reads_low_2.fastq -o ./spades_reads
+
+./velvetreads.py ~/qbb2017-answers/week2/reads/contigs.fa 
+
+lastz reference.fasta ./reads/contigs.fa --format=general:zstart1,end1,name2 --chain --output=velvet_illu_dot.out
+
+lastz reference.fasta ./spades_reads/contigs.fasta --format=general:zstart1,end1,name2 --chain --output=spades_illu_dot.out
+
+sort -k 1 -n velvet_illu_dot.out > velvet_illu_dot_sorted.out
+sort -k 1 -n spades_illu_dot.out > spades_illu_dot_sorted.out
+
+./dotplots.py velvet_illu_dot_sorted.out 
+./dotplots.py spades_illu_dot_sorted.out 
+
+
+Part2 -- Long Reads
+
+
+spades.py -1 reads_low_1.fastq -2 reads_low_2.fastq --nanopore MAP006.subset.fa -o ./spades_nano
+
+lastz reference.fasta ./spades_nano/contigs.fasta --format=general:zstart1,end1,name2 --chain --output=spades_nano_dot.out
+
+sort -k 1 -n spades_nano_dot.out > spades_nano_dot_sorted.out
+
+
+Part3 -- Better Coverage
+
+
+velveth better_velvet 31 -shortPaired -fastq -separate reads_1.fastq reads_2.fastq 
+velvetg better_velvet/
+
+spades.py -1 reads_low_1.fastq -2 reads_low_2.fastq -o ./better_spades
+
+lastz reference.fasta ./better_velvet/contigs.fa --format=general:zstart1,end1,name2 --chain --output=better_velvet_dot.out
+
+lastz reference.fasta ./better_spades/contigs.fasta --format=general:zstart1,end1,name2 --chain --output=better_spades_dot.out
+
+sort -k 1 -n better_velvet_dot.out >better_velvet_dot_sorted.out
+sort -k 1 -n better_spades_dot.out >better_spades_dot_sorted.out
+
+
+Part4 -- Comparing Assemblies
+
+
+quast ./reads/contigs.fa ./better_velvet/contigs.fa ./better_spades/contigs.fasta ./spades_reads/contigs.fasta ./spades_nano/contigs.fasta -R reference.fasta
