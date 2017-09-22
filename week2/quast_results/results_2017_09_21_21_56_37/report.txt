@@ -1,0 +1,27 @@
+All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
+
+Assembly                    reads_contigs  better_velvet_contigs  better_spades_contigs  spades_reads_contigs  spades_nano_contigs
+# contigs (>= 0 bp)         305            16                     128                    128                   65                 
+# contigs (>= 1000 bp)      0              7                      4                      4                     20                 
+# contigs (>= 5000 bp)      0              7                      0                      0                     3                  
+# contigs (>= 10000 bp)     0              4                      0                      0                     0                  
+# contigs (>= 25000 bp)     0              1                      0                      0                     0                  
+# contigs (>= 50000 bp)     0              0                      0                      0                     0                  
+Total length (>= 0 bp)      56973          100309                 49818                  49819                 72814              
+Total length (>= 1000 bp)   0              99584                  5313                   5313                  58394              
+Total length (>= 5000 bp)   0              99584                  0                      0                     19533              
+Total length (>= 10000 bp)  0              81134                  0                      0                     0                  
+Total length (>= 25000 bp)  0              33235                  0                      0                     0                  
+Total length (>= 50000 bp)  0              0                      0                      0                     0                  
+# contigs                   11             7                      20                     20                    24                 
+Largest contig              998            33235                  1737                   1737                  6735               
+Total length                7243           99584                  15922                  15923                 61012              
+Reference length            4639675        4639675                4639675                4639675               4639675            
+GC (%)                      50.71          52.58                  51.21                  51.21                 52.37              
+Reference GC (%)            50.79          50.79                  50.79                  50.79                 50.79              
+N50                         632            19911                  718                    718                   3698               
+N75                         542            13440                  635                    635                   1843               
+L50                         5              2                      8                      8                     6                  
+L75                         8              4                      13                     13                    12                 
+# N's per 100 kbp           0.00           0.00                   0.00                   0.00                  0.00               
+NGA50                       -              -                      -                      -                     -                  
