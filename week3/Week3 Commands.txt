@@ -1,0 +1,22 @@
+tar xfv BYxRM_subset.tar.xv 
+
+tar -xf Saccharomyces_cerevisiae_UCSC_sacCer3.tar 
+
+bwa mem -R '@RG\tID:A01_--\tSM:A01_--' -o A--.sam ./Saccharomyces_cerevisiae/UCSC/sacCer3/Sequence/WholeGenomeFasta/genome.fa A01_--.fastq 
+
+samtools sort A--.sam -o A--.sorted.bam
+samtools index A--.sorted.bam 
+
+freebayes -f genome.fa -b A09.sorted.bam A11.sorted.bam A23.sorted.bam A24.sorted.bam A27.sorted.bam A31.sorted.bam A35.sorted.bam A39.sorted.bam A62.sorted.bam A63.sorted.bam > freebayes.vcf
+
+vcffilter -f "QUAL > 100" freebayes.vcf > real_filtered.vcf
+
+snpEff download R64-1-1.86
+
+snpEff R64-1-1.86 real_filtered.vcf > annotated_filtered.vcf
+
+tail -n+84 annotated_filtered.vcf > nohead_annotated.vcf
+
+sort -k 6,6 -r -n nohead_annotated.vcf -o sorted_annotated.vcf
+
+head -n5 sorted_annotated.vcf > top5_annotated.vcf
