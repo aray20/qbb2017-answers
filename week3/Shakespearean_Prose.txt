@@ -1,0 +1,5 @@
+Predicted consequences of top 5 variant mutations:
+
+The single nucleotide mutations have the potential to have large or small scale effects depending on where these mutations are found and at what position of the codon they are. If they are at the 3rd codon site, there might not be any change in amino acid sequence due to degeneracy of the genetic code. There also could be drastic changes if the amino acid change is from, for example, a charged to a non-charged amino acid, causing a large disruption in protein function. The context of this mutation needs to be known in order to make a more accurate judgement. 
+
+The large ATTTTTTTTC to ATTTTTTTC would cause a frameshift mutation because there is one less nucleotide in the second variant. This has the potential to cause a larger scale effect due to possible protein misfolding or downstream disruption of the gene. 
