@@ -21,11 +21,12 @@ transformed = data_df_oi.values[leavesx,: ][ :,leavesy]
 labels = np.array(labels)[leavesy]
 
 plt.figure()
-plt.imshow( transformed, aspect = 'auto', interpolation = 'nearest', cmap = 'RdBu')
+plt.imshow( transformed, aspect = 'auto', interpolation = 'nearest')
 plt.grid(False)
 plt.colorbar()
 plt.title("Clustered Gene Expression")
 plt.xticks( [x for x in range(6)], labels)
 plt.yticks( [] )
 plt.show()
+plt.savefig("Heatmap")
 plt.close()
