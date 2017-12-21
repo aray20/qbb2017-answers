@@ -1,21 +1,22 @@
 #!/usr/bin/env python
-
-import fasta
+"""
+Use: ./realign.py 1000_logs.fa alignpt.fa
+"""
 import sys
+import fasta
 import itertools
 
-nt = open(sys.argv[1]) #1000_homo.fa
-pt = open(sys.argv[2]) #alignment_pt.fa
+nuc = open(sys.argv[1])
+pt = open(sys.argv[2])
+doc = open("alignew.fa", "w")
 
-nt_pt = open("alignment_nuc.fa", "w")
-
-for (nt_id, nt_seq), (pt_id, pt_seq) in itertools.izip(fasta.FASTAReader(nt), fasta.FASTAReader(pt)):
-    nt_pt.write(nt_id + "\n")
-    for aa in pt_seq:
-        if aa == "-":
-            nt_pt.write("---")
+for (nident, nseq), (pident, pseq) in itertools.izip(fasta.FASTAReader(nuc), fasta.FASTAReader(pt)):
+    position = 0
+    for p in pseq:
+        if p == "-":
+            doc.write("---")
         else:
-            nt_pt.write(nt_seq[:3])
-            nt_seq = nt_seq[3:]
-        
-    nt_pt.write("\n")
+            doc.write(nseq[position:position + 3])
+            position = position + 3
+    doc.write("\n")
+ #   print doc
